@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         
         for i in 0..<titles.count {
             let vc = UIViewController()
-            vc.view.backgroundColor = i % 2 == 0 ? .blue : .red
+            vc.view.backgroundColor = UIColor.arc4randomColor()
             childVcs.append(vc)
         }
         
