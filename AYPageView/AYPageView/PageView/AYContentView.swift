@@ -8,10 +8,20 @@
 import UIKit
 
 private let kContentCellID = "kContentCellID"
+
+protocol AYContentViewDelegate: AnyObject {
+    
+    func contentView(_ contentView: AYContentView, targetIndex: Int)
+    func contentView(_ contentView: AYContentView, targetIndex: Int, progress: CGFloat)
+}
+
 class AYContentView: UIView {
     
+    weak var delegate: AYContentViewDelegate?
     fileprivate var childVcs: [UIViewController]
     fileprivate weak var parsentVc: UIViewController?
+    fileprivate var startOffsetX: CGFloat = 0
+    fileprivate var isForbidScroll: Bool = false
     
     lazy var collectionView: UICollectionView = {
         
@@ -27,6 +37,7 @@ class AYContentView: UIView {
         collectionView.scrollsToTop = false
         collectionView.bounces = false
         collectionView.dataSource = self
+        collectionView.delegate = self
         return collectionView
     }()
     
@@ -82,7 +93,58 @@ extension AYContentView: UICollectionViewDataSource {
 extension AYContentView: AYTitleViewDelegate {
     
     func titleView(_ titleView: AYTitleView, targetIndex: Int) {
+        isForbidScroll = true
         let indexPath = IndexPath.init(row: targetIndex, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+    }
+}
+
+
+extension AYContentView: UICollectionViewDelegate {
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        contentEndScroll()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            contentEndScroll()
+        }
+    }
+    
+    private func contentEndScroll() {
+        guard !isForbidScroll else { return }
+        
+        let cuttentIndex = Int(collectionView.contentOffset.x / collectionView.bounds.width)
+        delegate?.contentView(self, targetIndex: cuttentIndex)
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        startOffsetX = scrollView.contentOffset.x
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard startOffsetX != scrollView.contentOffset.x, !isForbidScroll else { return }
+        var targetIndex = 0
+        var progress: CGFloat = 0
+        
+        let currentIndex = Int(startOffsetX / scrollView.bounds.width)
+        if startOffsetX < scrollView.contentOffset.x {//左滑动
+            targetIndex = currentIndex + 1
+            if targetIndex > childVcs.count - 1 {
+                targetIndex = childVcs.count - 1
+            }
+            progress = (scrollView.contentOffset.x - startOffsetX) / scrollView.bounds.width
+            
+        } else {
+            targetIndex = currentIndex - 1
+            if targetIndex < 0 {
+                targetIndex = 0
+            }
+            progress = (startOffsetX - scrollView.contentOffset.x) / scrollView.bounds.width
+        }
+        
+        
+        delegate?.contentView(self, targetIndex: targetIndex, progress: progress)
     }
 }

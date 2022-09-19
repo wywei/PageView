@@ -55,6 +55,7 @@ extension AYPageView {
         // pageContentView
         addSubview(contentView)
         titleView.delegate = contentView
+        contentView.delegate = titleView
         
     }
 

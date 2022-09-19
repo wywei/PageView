@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         let style = AYTitleStyle()
         style.titleHeight = 64
         style.isScrollEnable = true
+        style.isShowScrollLine = true
         let pageViewFrame = CGRect(x: 0, y: kNavigationBarH, width: self.view.frame.width, height:  self.view.frame.height - kNavigationBarH)
         var pageView = AYPageView(frame: pageViewFrame,
                                   titles: titles,
