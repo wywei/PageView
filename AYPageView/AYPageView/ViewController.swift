@@ -37,18 +37,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
     }
 
 }
 
 
-extension ViewController {
+// MARK:- 粒子动画
 
-    fileprivate func setupUI() {
-        view.addSubview(pageView)
-        
-    }
-
+extension ViewController: Emitterable {
+   
 }
 

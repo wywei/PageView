@@ -19,6 +19,8 @@
 		0D03A31228D70B2E006BACF6 /* AYTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D03A31128D70B2E006BACF6 /* AYTitleStyle.swift */; };
 		0D03A31428D75F9C006BACF6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D03A31328D75F9C006BACF6 /* Common.swift */; };
 		0D03A31628D775B8006BACF6 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D03A31528D775B8006BACF6 /* UIColor-Extension.swift */; };
+		0D0E256E28DA973500E13678 /* NilLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E256D28DA973500E13678 /* NilLoadable.swift */; };
+		0D0E257028DA9BCC00E13678 /* Emitterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E256F28DA9BCB00E13678 /* Emitterable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		0D03A31128D70B2E006BACF6 /* AYTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AYTitleStyle.swift; sourceTree = "<group>"; };
 		0D03A31328D75F9C006BACF6 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		0D03A31528D775B8006BACF6 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		0D0E256D28DA973500E13678 /* NilLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilLoadable.swift; sourceTree = "<group>"; };
+		0D0E256F28DA9BCB00E13678 /* Emitterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emitterable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 				0D03A2F628D700ED006BACF6 /* AppDelegate.swift */,
 				0D03A2F828D700ED006BACF6 /* SceneDelegate.swift */,
 				0D03A2FA28D700ED006BACF6 /* ViewController.swift */,
+				0D0E256F28DA9BCB00E13678 /* Emitterable.swift */,
 				0D03A2FC28D700ED006BACF6 /* Main.storyboard */,
 				0D03A2FF28D700EF006BACF6 /* Assets.xcassets */,
 				0D03A30128D700EF006BACF6 /* LaunchScreen.storyboard */,
@@ -89,6 +94,7 @@
 				0D03A30F28D701AC006BACF6 /* AYContentView.swift */,
 				0D03A31328D75F9C006BACF6 /* Common.swift */,
 				0D03A31528D775B8006BACF6 /* UIColor-Extension.swift */,
+				0D0E256D28DA973500E13678 /* NilLoadable.swift */,
 			);
 			path = PageView;
 			sourceTree = "<group>";
@@ -165,8 +171,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D03A31428D75F9C006BACF6 /* Common.swift in Sources */,
+				0D0E257028DA9BCC00E13678 /* Emitterable.swift in Sources */,
 				0D03A2FB28D700ED006BACF6 /* ViewController.swift in Sources */,
 				0D03A30C28D70191006BACF6 /* AYPageView.swift in Sources */,
+				0D0E256E28DA973500E13678 /* NilLoadable.swift in Sources */,
 				0D03A2F728D700ED006BACF6 /* AppDelegate.swift in Sources */,
 				0D03A31628D775B8006BACF6 /* UIColor-Extension.swift in Sources */,
 				0D03A31028D701AC006BACF6 /* AYContentView.swift in Sources */,

@@ -8,7 +8,6 @@
 import UIKit
 
 class AYTitleStyle {
-    
     var titleHeight: CGFloat = 44.0
     var normalColor: UIColor = UIColor(r: 0, g: 0, b: 0)
     var selectedColor: UIColor = UIColor(r: 255, g: 127, b: 0)
@@ -18,6 +17,5 @@ class AYTitleStyle {
     var isShowScrollLine: Bool = false
     var scrollLineHeight: CGFloat = 2
     var scrollLineColor: UIColor = UIColor.red
-  
 }
 
